@@ -342,6 +342,7 @@ exports.hentaiMenu = (prefix, ownerName) => {
 ├≽ *${prefix}yuri*
 ├≽ *${prefix}boobs*
 ├≽ *${prefix}kuni*
+├≽ *SEWA BOT KETIK #owner*
 ├─────────────────────
 ╘═══ 《 *By ${ownerName}* 》 ═══`
 }
