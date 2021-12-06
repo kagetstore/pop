@@ -27,7 +27,11 @@ module.exports = async(xinz, anj, welcome, left) => {
             } catch {
                 var pic = 'https://i.ibb.co/Tq7d7TZ/age-hananta-495-photo.png'
             }
-            xinz.sendMessage(anj.jid, await getBuffer(pic), MessageType.image, {caption: `Hai @${anj.participants[0].split("@")[0]}, selamat datang di ${groupName}`, contextInfo: {"mentionedJid": [anj.participants[0]]}})
+            xinz.sendMessage(anj.jid, await getBuffer(pic), MessageType.image, {caption: `Hai @${anj.participants[0].split("@")[0]}, selamat datang di ${groupName}*Intro Dulu Ye*
+•_+ Nama :
+•_+ Umur :
+•_+ Askot:
+_do not get out :v`, contextInfo: {"mentionedJid": [anj.participants[0]]}})
         }
     } else if (anj.action === 'remove' && isLeft){
         try {
