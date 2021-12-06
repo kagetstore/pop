@@ -52,7 +52,7 @@ exports.newMenu = (ucapan, ownerName, botName, prefix, pendaftar, runtime, pushn
 ┃⬡ Permanen : 15K
 ┃⬡ Jadi Bot : Tanya Owner Saja
 ┃⚠️ 𝐍𝐎𝐓𝐄 : 𝐁𝐎𝐓 𝐎𝐍 𝟐𝟒 𝐉𝐀𝐌 ⚠️
-┃⚠️ 𝐍𝐎𝐓𝐄 : *SEWA BOT KETIK #owner⚠️*
+┃⚠️ NO OWNER :Wa.me/6285763500823 ⚠️ 
 ┗━━⬣
 ├────────────────────
 ╞═══ 《 *THANKS TO* 》 ═══
