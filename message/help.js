@@ -95,6 +95,7 @@ exports.ownerMenu = (prefix, ownerName) => {
 ├≽ *${prefix}addbaword*
 ├≽ *${prefix}delbaword*
 ├≽ *${prefix}addchangelog*
+├≽ *${prefix}sewa*
 ├≽ *${prefix}public*
 ├≽ *${prefix}self*
 ├≽ *${prefix}exif*
@@ -111,6 +112,8 @@ exports.ownerMenu = (prefix, ownerName) => {
 exports.groupMenu = (prefix, ownerName) => {
     return `╒═══ 《 *GROUP MENU* 》 ═══
 ├────────────────────
+├≽ *${prefix}sewabot*
+├≽ *${prefix}ceksewa*
 ├≽ *${prefix}afk*
 ├≽ *${prefix}infogrup*
 ├≽ *${prefix}add*
