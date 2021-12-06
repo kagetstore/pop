@@ -44,6 +44,17 @@ exports.newMenu = (ucapan, ownerName, botName, prefix, pendaftar, runtime, pushn
 ├≽ *${prefix}storagemenu*
 ├≽ *${prefix}othermenu*
 ├────────────────────
+╞═══ 《 𝐎𝐏𝐄𝐍 𝐒𝐄𝐖𝐀 𝐁𝐎𝐓 》 ═══
+├────────────────────
+┏━━⬣ 𝐇𝐀𝐑𝐆𝐀 𝐒𝐄𝐖𝐀 𝐁𝐎𝐓
+┃⬡ 1 Minggu : 5K
+┃⬡ 1 Bulan : 10K
+┃⬡ Permanen : 15K
+┃⬡ Jadi Bot : Tanya Owner Saja
+┃⚠️ 𝐍𝐎𝐓𝐄 : 𝐁𝐎𝐓 𝐎𝐍 𝟐𝟒 𝐉𝐀𝐌 ⚠️
+┃⚠️ 𝐍𝐎𝐓𝐄 : *SEWA BOT KETIK #owner⚠️*
+┗━━⬣
+├────────────────────
 ╞═══ 《 *THANKS TO* 》 ═══
 ├────────────────────
 ├≽ *Xinz-Team*
@@ -54,6 +65,7 @@ exports.newMenu = (ucapan, ownerName, botName, prefix, pendaftar, runtime, pushn
 ├≽ *X-MrG3P5*
 ├≽ *Nanda*
 ├≽ *Juwen*
+├≽ *𝑲𝑨𝑮𝑬𝑻𝑺𝑻𝑶𝑹𝑬*
 ├≽ *Adiwajshing/Baileys*
 ╘═══ 《 *By ${ownerName}* 》 ═══`
 }
