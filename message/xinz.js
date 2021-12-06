@@ -1008,7 +1008,7 @@ module.exports = async(xinz, msg, blocked, baterai, _afk, welcome, left) => {
             case prefix+'owner':
             case prefix+'creator':
                 xinz.sendContact(from, ownerNumber.split("@")[0], setting.ownerName, msg)
-                .then((res) => xinz.sendMessage(from, 'Nih kontak ownerku', text, {quoted: res}))
+                .then((res) => xinz.sendMessage(from, 'Nih kontak ownerku Yang Paling Ganteng', text, {quoted: res}))
                 break
             case prefix+'ping':
             case prefix+'speed':{
@@ -1021,7 +1021,7 @@ module.exports = async(xinz, msg, blocked, baterai, _afk, welcome, left) => {
                 textImg(setting.txtDonasi)
                 break
             case prefix+'sourcecode': case prefix+'sc': case prefix+'src':
-                textImg(`Bot ini menggunakan sc : https://github.com/Xinz-Team/XinzBot`)
+                textImg(`Bot ini menggunakan sc : BELI KE OWNER JANGAN CARI GRATISAN MULU`)
                 break
             case prefix+'runtime':
                 textImg(`${runtime(process.uptime())}`)
