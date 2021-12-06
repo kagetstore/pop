@@ -44,6 +44,7 @@ const { fbdl } = require("../lib/fbdl");
 const { fakeStatus, fakeToko } = require("./fakeReply");
 const game = require("../lib/game");
 const { addBadword, delBadword, isKasar, addCountKasar, isCountKasar, delCountKasar } = require("../lib/badword");
+const _sewa = require("./lib/sewa");
 
 // Database
 let pendaftar = JSON.parse(fs.readFileSync('./database/user.json'))
@@ -61,6 +62,7 @@ let grupbadword = JSON.parse(fs.readFileSync('./database/grupbadword.json'));
 let senbadword = JSON.parse(fs.readFileSync('./database/senbadword.json'));
 let mute = JSON.parse(fs.readFileSync('./database/mute.json'));
 let nsfw = JSON.parse(fs.readFileSync('./database/nsfw.json'));
+let sewa = JSON.parse(fs.readFileSync('./database/sewa.json'));
 
 // Game
 let tictactoe = [];
@@ -119,6 +121,7 @@ module.exports = async(xinz, msg, blocked, baterai, _afk, welcome, left) => {
         const isOwner = ownerNumber.includes(sender)
         const isPremium = isOwner ? true : _prem.checkPremiumUser(sender, premium)
 	    const isBan = cekBannedUser(sender, ban)
+	    const isSewa = _sewa.checkSewaGroup(from, sewa)
         const isAfkOn = afk.checkAfkUser(sender, _afk)
         const isAntiLink = isGroup ? antilink.includes(from) : false
         const isAntiWame = isGroup ? antiwame.includes(from) : false
@@ -217,6 +220,10 @@ module.exports = async(xinz, msg, blocked, baterai, _afk, welcome, left) => {
             if (chats.match(/(https:\/\/chat.whatsapp.com)/gi)) {
                 reply(`*「 GROUP LINK DETECTOR 」*\n\nSepertinya kamu mengirimkan link grup, maaf kamu akan di kick`)
                 xinz.groupRemove(from, [sender])
+            }
+        }
+        // Sewa
+             _sewa.expiredCheck(client, sewa)
             }
         }
         // Anti wame
@@ -722,6 +729,61 @@ module.exports = async(xinz, msg, blocked, baterai, _afk, welcome, left) => {
                     }
                 reply(decodebinary(q))
                 break
+//------------------< Sewa >-------------------
+       case 'sewa':
+              if (!isGroup)return reply(mess.only.group)
+              if (!isOwner) return reply(mess.only.owner)
+              if (args.length < 1) return reply(`Penggunaan :\n*${prefix}sewa* add/del waktu`)
+              if (args[0].toLowerCase() === 'add'){
+            _sewa.addSewaGroup(from, args[1], sewa)
+              reply(`Success`)
+              } else if (args[0].toLowerCase() === 'del'){
+              sewa.splice(_sewa.getSewaPosition(from, sewa), 1)
+              fs.writeFileSync('./database/group/sewa.json', JSON.stringify(sewa))
+              reply(mess.success)
+              } else {
+              reply(`Penggunaan :\n*${prefix}sewa* add/del waktu`)
+}
+              break
+       case 'sewalist': 
+       case 'listsewa':
+              let txtnyee = `List Sewa\nJumlah : ${sewa.length}\n\n`
+              for (let i of sewa){
+              let cekvipp = ms(i.expired - Date.now())
+              txtnyee += `*ID :* ${i.id} \n*Expire :* ${cekvipp.days} day(s) ${cekvipp.hours} hour(s) ${cekvipp.minutes} minute(s) ${cekvipp.seconds} second(s)\n\n`
+}
+              reply(txtnyee)
+              break
+       case 'sewacheck':
+       case 'ceksewa': 
+              if (!isGroup) return reply(mess.only.group)
+              if (!isSewa) return reply(`Group ini tidak terdaftar dalam list sewabot. Ketik ${prefix}sewabot untuk info lebih lanjut`)
+              let cekvip = ms(_sewa.getSewaExpired(from, sewa) - Date.now())
+              let premiumnya = `*「 SEWA EXPIRE 」*\n\n➸ *ID*: ${from}\n➸ *Expired :* ${cekvip.days} day(s) ${cekvip.hours} hour(s) ${cekvip.minutes} minute(s)`
+              reply(premiumnya)
+        case 'sewabot':
+              gopeynya = 'https://telegra.ph/file/6145bf2e0afea27b9a2a3.jpg'
+              teksnya = `*── 「 PRICE LIST 」 ──*
+
+𝐇𝐀𝐑𝐆𝐀 𝐒𝐄𝐖𝐀 𝐁𝐎𝐓
+┃⬡ 1 Minggu : 5K
+┃⬡ 1 Bulan : 10K
+┃⬡ Permanen : 15K
+┃⬡ Jadi Bot : 30k
+*Free Premium 1Bulan*
+*Keuntungan Premium Diantaranya:*
+♲ *Bebas memakai fitur premium*
+♲ *Dapat Informasi Lebih dulu akan Update, Nomor Bot Baru (Jika Terbanned), dan Lainnya*
+
+*Jika Tertarik,Kalian Bisa Bayar Melalui Metode Pembayaran di Bawah:*
+*Dana : 0857-6350-0823*
+*Gopay : 0812-7930-1794*
+*Atau Gopay pada gambar diatas*
+
+*Info Lebih Lengkap Chat Owner, Ketik ${prefix}owner*
+*_note_*:
+              client.sendMessage(from, await getBuffer(gopeynya), image, {quoted: mek, caption: teksnya })
+              break
 //------------------< NULIS >---------------------
             case prefix+'nulis':
                 reply(`*Pilihan*\n${prefix}nuliskiri\n${prefix}nuliskanan\n${prefix}foliokiri\n${prefix}foliokanan`)
