@@ -112,8 +112,6 @@ exports.ownerMenu = (prefix, ownerName) => {
 exports.groupMenu = (prefix, ownerName) => {
     return `╒═══ 《 *GROUP MENU* 》 ═══
 ├────────────────────
-├≽ *${prefix}sewabot*
-├≽ *${prefix}ceksewa*
 ├≽ *${prefix}afk*
 ├≽ *${prefix}infogrup*
 ├≽ *${prefix}add*
