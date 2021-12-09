@@ -365,9 +365,7 @@ module.exports = async(xinz, msg, blocked, baterai, _afk, welcome, left) => {
                 break
             case prefix+'help': case prefix+'menu':{
                 axios.get(`https://api-ramlan.herokuapp.com/api/ucapan?timeZone=Asia/Jakarta`)
-                .then(async(ucapan) => {
-                let son = fs.readFileSync('./media/music/sound2.mp3')
-                xinz.sendMessage(from, son, audio, { mimetype: 'audio/mp4', quoted: mek, ptt: true })                  
+                .then(async(ucapan) => {                            
                 let sisalimit = getLimit(sender, limitCount, limit)
                 let sisaGlimit = cekGLimit(sender, gcount, glimit)
                 let cekvip = ms(_prem.getPremiumExpired(sender, premium) - Date.now())
