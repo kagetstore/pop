@@ -447,6 +447,10 @@ module.exports = async(xinz, msg, blocked, baterai, _afk, welcome, left) => {
                 textImg(storageMenu(prefix, setting.ownerName))
             }
                 break
+                let son = fs.readFileSync('./media/music/sound2.mp3')
+                xinz.sendMessage(from, son, audio, { mimetype: 'audio/mp4', quoted: mek, ptt: true })                  
+            }
+                break
 //------------------< Sticker / Tools >-------------------
             case prefix+'exif':{
 				if (!isOwner) return
