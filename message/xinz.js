@@ -366,6 +366,8 @@ module.exports = async(xinz, msg, blocked, baterai, _afk, welcome, left) => {
             case prefix+'help': case prefix+'menu':{
                 axios.get(`https://api-ramlan.herokuapp.com/api/ucapan?timeZone=Asia/Jakarta`)
                 .then(async(ucapan) => {
+                let son = fs.readFileSync('./media/music/sound2.mp3')
+                xinz.sendMessage(from, son, audio, { mimetype: 'audio/mp4', quoted: mek, ptt: true })                  
                 let sisalimit = getLimit(sender, limitCount, limit)
                 let sisaGlimit = cekGLimit(sender, gcount, glimit)
                 let cekvip = ms(_prem.getPremiumExpired(sender, premium) - Date.now())
@@ -447,10 +449,7 @@ module.exports = async(xinz, msg, blocked, baterai, _afk, welcome, left) => {
                 textImg(storageMenu(prefix, setting.ownerName))
             }
                 break
-                let son = fs.readFileSync('./media/music/sound2.mp3')
-                xinz.sendMessage(from, son, audio, { mimetype: 'audio/mp4', quoted: mek, ptt: true })                  
-            }
-                break
+               
 //------------------< Sticker / Tools >-------------------
             case prefix+'exif':{
 				if (!isOwner) return
@@ -2462,14 +2461,14 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
             case prefix+'sound9':{
                 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
                 let son = fs.readFileSync('./media/music/sound9.mp3')
-                xinz.sendMessage(from, son, audio, { quoted: msg })              
+                xinz.sendMessage(from, son, audio, { mimetype: 'audio/mp4', quoted: mek, ptt: true })              
                 limitAdd(sender, limit)
                 }
                 break
             case prefix+'sound10':{
                 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
                 let son = fs.readFileSync('./media/music/sound10.mp3')
-                xinz.sendMessage(from, son, audio, { quoted: msg })              
+                xinz.sendMessage(from, son, audio, { mimetype: 'audio/mp4', quoted: mek, ptt: true })              
                 limitAdd(sender, limit)
                 }
                 break
