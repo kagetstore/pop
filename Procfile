@@ -1,2 +1,1 @@
-worker: npm install && node .
-worker :  npm i ffmpeg && npm i @adiwajshing/baileys@latest && npm i terminal-kit && npm start
+worker : npm i && npm i pm2 -g && pm2 install ffmpeg && pm2 start main.js && pm2 save && pm2 logs
